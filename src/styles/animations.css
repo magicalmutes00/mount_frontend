@@ -1,0 +1,310 @@
+/* Global Animation Styles */
+
+/* Core Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes amountPulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes floatUp {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-50px) scale(0.5); }
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.3) translateY(-50px); }
+  50% { opacity: 1; transform: scale(1.05) translateY(-10px); }
+  70% { transform: scale(0.95) translateY(0); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes floatIn {
+  0% { opacity: 0; transform: translateY(20px) rotate(-5deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+/* Animation Classes */
+.animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+.animate-slideInLeft { animation: slideInLeft 0.8s ease-out forwards; }
+.animate-slideInRight { animation: slideInRight 0.8s ease-out forwards; }
+.animate-scaleIn { animation: scaleIn 0.6s ease-out forwards; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-pulse-custom { animation: pulse 2s ease-in-out infinite; }
+.animate-heartBeat { animation: heartBeat 2s ease-in-out infinite; }
+.animate-amountPulse { animation: amountPulse 2s ease-in-out infinite; }
+.animate-bounceIn { animation: bounceIn 1s ease-out forwards; }
+.animate-floatIn { animation: floatIn 0.8s ease-out forwards; }
+
+/* Stagger Delays */
+.stagger-1 { animation-delay: 0.1s; animation-fill-mode: both; }
+.stagger-2 { animation-delay: 0.2s; animation-fill-mode: both; }
+.stagger-3 { animation-delay: 0.3s; animation-fill-mode: both; }
+.stagger-4 { animation-delay: 0.4s; animation-fill-mode: both; }
+.stagger-5 { animation-delay: 0.5s; animation-fill-mode: both; }
+.stagger-6 { animation-delay: 0.6s; animation-fill-mode: both; }
+
+/* Hover Effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Effects */
+.form-field { transition: all 0.3s ease; }
+.form-field:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.15);
+}
+
+/* Button Effects */
+.amount-button {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.amount-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+.amount-button.selected {
+  animation: amountPulse 1s ease-out;
+  background: linear-gradient(135deg, #16a34a, #059669);
+}
+
+/* Shimmer Effects */
+.shimmer-bg {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Floating Elements */
+.floating-particle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 3s ease-in-out infinite;
+}
+.floating-hearts {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  pointer-events: none;
+}
+.floating-heart {
+  position: absolute;
+  animation: floatUp 3s ease-out infinite;
+  opacity: 0;
+}
+
+/* Gallery Specific Styles */
+.gallery-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+.gallery-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.tab-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.floating-badge {
+  animation: floatIn 0.6s ease-out forwards;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+}
+/* Additional Animation Classes */
+.animate-slideInUp { animation: slideInUp 0.8s ease-out forwards; }
+.animate-bounceIn { animation: bounceIn 1s ease-out forwards; }
+.animate-zoomIn { animation: zoomIn 0.8s ease-out forwards; }
+.animate-rotateIn { animation: rotateIn 1s ease-out forwards; }
+.animate-flipInX { animation: flipInX 1s ease-out forwards; }
+.animate-bounce-custom { animation: bounce 2s infinite; }
+.animate-floatIn { animation: floatIn 0.8s ease-out forwards; }
+
+/* Additional Keyframes */
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(100px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.3) translateY(-50px); }
+  50% { opacity: 1; transform: scale(1.05) translateY(-10px); }
+  70% { transform: scale(0.95) translateY(0); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rotateIn {
+  from { opacity: 0; transform: rotate(-200deg); }
+  to { opacity: 1; transform: rotate(0deg); }
+}
+
+@keyframes flipInX {
+  0% { opacity: 0; transform: perspective(400px) rotateX(90deg); }
+  40% { transform: perspective(400px) rotateX(-20deg); }
+  60% { transform: perspective(400px) rotateX(10deg); }
+  80% { transform: perspective(400px) rotateX(-5deg); }
+  100% { opacity: 1; transform: perspective(400px) rotateX(0deg); }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
+  40%, 43% { transform: translate3d(0, -30px, 0); }
+  70% { transform: translate3d(0, -15px, 0); }
+  90% { transform: translate3d(0, -4px, 0); }
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(20px) rotate(-5deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+/* Gallery specific styles */
+.gallery-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.gallery-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+.gallery-item img {
+  transition: transform 0.3s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Filter button styles */
+.filter-button {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.filter-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+.filter-button.active {
+  background: linear-gradient(135deg, #16a34a, #059669);
+  color: white;
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 640px) {
+  .card-hover:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Reduce animation intensity on mobile for better performance */
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .animate-pulse-custom {
+    animation: pulse 3s ease-in-out infinite;
+  }
+}
+
+/* Touch-friendly button sizing */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Improved text readability on mobile */
+@media (max-width: 640px) {
+  .text-responsive {
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+}
+
+/* Mobile video player optimizations */
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+/* Prevent zoom on double tap for video controls */
+.video-controls {
+  touch-action: manipulation;
+  user-select: none;
+}
+
+/* Mobile-friendly spacing */
+@media (max-width: 640px) {
+  .mobile-spacing {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

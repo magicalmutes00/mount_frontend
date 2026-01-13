@@ -1,0 +1,169 @@
+@import './tailwind.css';
+@import './theme.css';
+@import './animations.css';
+
+/* Livestream Notification Animations */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-in-mobile {
+  0% {
+    transform: translate(100%, 100%) scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: translate(-10px, -10px) scale(1.05);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(5px, 5px) scale(0.98);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out;
+}
+
+/* Livestream Notification Styles */
+.mobile-notification {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-notification:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-notification-pill {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 300px;
+  width: 300px;
+}
+
+.mobile-notification-pill:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-notification-pill:active {
+  transform: scale(0.98);
+}
+
+/* Tamil-specific notification styles */
+.tamil-notification-mobile {
+  max-width: 320px !important;
+  width: 320px;
+  min-height: 60px;
+}
+
+.tamil-notification-desktop {
+  min-width: 300px;
+  max-width: 350px;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Mobile-specific styles for pill design */
+@media (max-width: 768px) {
+  .mobile-notification-pill {
+    animation: bounce-in-mobile 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .tamil-notification-mobile {
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+  .mobile-notification {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .mobile-notification-pill {
+    max-width: 280px !important;
+    width: 280px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+  
+  .tamil-notification-mobile {
+    max-width: 300px !important;
+    width: 300px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .mobile-notification-pill {
+    max-width: 260px !important;
+    width: 260px;
+  }
+  
+  .tamil-notification-mobile {
+    max-width: 280px !important;
+    width: 280px;
+  }
+}
+
+/* Tamil text improvements */
+@media (max-width: 768px) {
+  .tamil-notification-mobile .tamil-text {
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+  }
+  
+  .tamil-notification-mobile .tamil-button {
+    font-size: 10px !important;
+    padding: 4px 8px !important;
+    white-space: nowrap;
+  }
+  
+  .tamil-notification-mobile .tamil-heading {
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide-in-right,
+  .mobile-notification-pill {
+    animation: none;
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  
+  .mobile-notification:hover,
+  .mobile-notification-pill:hover {
+    transform: none;
+  }
+}
